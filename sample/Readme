@@ -1,0 +1,10 @@
+gcc -c fPIC myclib.c (create memoryaddress independent objectfile)
+
+which produces: myclib.o
+
+gcc -shared -fPIC -o libmyclib.so myclib.o (create shared library)
+
+gcc -c mymain.c (creates an object file out of main.c)
+
+Setup to find the library lib.so
+export LD_LIBRARY_PATH=../src
