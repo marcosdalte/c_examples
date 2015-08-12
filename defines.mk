@@ -1,0 +1,10 @@
+MAJOR=1
+MINOR=1
+PATCH=0
+PACKG=1
+VERSION:=$(MAJOR).$(MINOR).$(PATCH)
+
+NAME=c_examples
+SHARED:=lib$(NAME)_shared.so.$(VERSION)
+STATIC:=lib$(NAME)_static.a.$(VERSION)
+
