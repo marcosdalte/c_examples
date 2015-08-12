@@ -1,3 +1,5 @@
 all:
-	gcc -o estatica estatica.c -I ../include/ -L ../src/ -lcpf
-	gcc -g -L ../src/ compartilhada.c -I ../include/ -o compartilhada -lcnpj
+	@#gcc -o estatica estatica.c -I ../include/ -L ../src/ -lcpf
+	gcc -o estatica estatica.c -I ../include/ -L ../src/ -lc_examples_static
+	gcc -g -L ../src/ compartilhada.c -I ../include/ -o compartilhada -lc_examples_shared
+	@#gcc -g -L ../src/ compartilhada.c -I ../include/ -o compartilhada -lcnpj
