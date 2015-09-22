@@ -12,28 +12,17 @@
 Name: %{packgname}
 Version: %{major}.%{minor}.%{patch}
 Release: %{specrel}trr
-Summary: Terra Networks %{name}
+Summary: Baladay %{name}
 Source: %{appname}-%{version}.tar.gz
 License: Proprietary
 Group: Applications
 BuildRoot: /var/tmp/rpm-%{appname}-%{version}
-Requires: sgtec >= 1
-Requires: xerces-c >= 3.1
-Requires: libepp-nicbr
+Requires: gcc >= 3
 
-URL: http://projetos.terra.com.br/
+URL: www.baladay.com.br/
 
 %description
-Terra Networks %{name}
-
-%package devel
-Requires:       %{name} = %{version}
-Group:          Development/Libraries
-Summary:        Header files for LIBEPP-NICBR
-
-%description devel
-Header files you can use to develop EPP applications with LIBEPP-NICBR.
-
+Baladay %{name}
 
 %prep
 %setup -q -n %{cvsname}
@@ -58,5 +47,5 @@ rm -rf "$RPM_BUILD_ROOT"
 %attr (0755,root,root) /home/marcos.dalte/t_exam/%{lstatic}.%{major}
 
 %changelog
-* Thu Jul 21 2014 Marcos Dalte <marcos@absoluta.net>
+* Thu Jul 21 2014 Marcos Dalte <marcosdalte@gmail.com>
 - Created RPM package
