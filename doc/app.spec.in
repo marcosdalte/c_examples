@@ -1,0 +1,62 @@
+%define packgname @@PACKGNAME@@
+%define major @@MAJOR@@
+%define minor @@MINOR@@
+%define patch @@PATCH@@
+%define specrel @@SPECREL@@
+%define cvsname @@CVSNAME@@
+%define appname @@APPNAME@@
+%define binname @@BINNAME@@
+%define lshared @@LSHARED@@
+%define lstatic @@LSTATIC@@
+
+Name: %{packgname}
+Version: %{major}.%{minor}.%{patch}
+Release: %{specrel}trr
+Summary: Terra Networks %{name}
+Source: %{appname}-%{version}.tar.gz
+License: Proprietary
+Group: Applications
+BuildRoot: /var/tmp/rpm-%{appname}-%{version}
+Requires: sgtec >= 1
+Requires: xerces-c >= 3.1
+Requires: libepp-nicbr
+
+URL: http://projetos.terra.com.br/
+
+%description
+Terra Networks %{name}
+
+%package devel
+Requires:       %{name} = %{version}
+Group:          Development/Libraries
+Summary:        Header files for LIBEPP-NICBR
+
+%description devel
+Header files you can use to develop EPP applications with LIBEPP-NICBR.
+
+
+%prep
+%setup -q -n %{cvsname}
+
+%build 
+make CFLAGS="$RPM_OPT_FLAGS"
+
+%install
+make install BUILD_ROOT="$RPM_BUILD_ROOT"
+
+
+%clean
+rm -rf "$RPM_BUILD_ROOT"
+
+%post
+
+%files
+%defattr (-,root,root)
+%attr (0755,root,root) /home/marcos.dalte/t_exam/%{lshared}
+%attr (0755,root,root) /home/marcos.dalte/t_exam/%{lstatic}
+%attr (0755,root,root) /home/marcos.dalte/t_exam/%{lshared}.%{major}
+%attr (0755,root,root) /home/marcos.dalte/t_exam/%{lstatic}.%{major}
+
+%changelog
+* Thu Jul 21 2014 Marcos Dalte <marcos@absoluta.net>
+- Created RPM package
