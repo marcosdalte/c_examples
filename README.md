@@ -1,4 +1,4 @@
-# c_examples
+# rpm_and_libs
 Evita o conflito caso exista um arquivo com o mesmo de nome alguma regra do Makefile
 .PHONY: clean
 
